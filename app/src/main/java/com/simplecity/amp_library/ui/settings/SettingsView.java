@@ -44,4 +44,8 @@ public interface SettingsView extends PurchaseView {
     void showBlacklistDialog(MaterialDialog dialog);
 
     void showWhitelistDialog(MaterialDialog dialog);
+
+    // Playback
+    void showSpokenAudioChooserDialog(MaterialDialog dialog);
+
 }

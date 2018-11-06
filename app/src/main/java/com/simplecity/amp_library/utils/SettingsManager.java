@@ -61,6 +61,10 @@ public class SettingsManager extends BaseSettingsManager {
     // Whether the 'rate' snackbar has been seen during this session
     public boolean hasSeenRateSnackbar = false;
 
+    // fdm225: Spoken Audio types
+    public static String KEY_PREF_AUDIO_BOOK_GENRES = "pref_audio_book_genres";
+    public static String KEY_PREF_PODCAST_GENRE = "pref_podcast_genres";
+
     private SettingsManager() {
 
     }
@@ -482,5 +486,14 @@ public class SettingsManager extends BaseSettingsManager {
 
     public void setShowArtworkInSongList(boolean showArtworkInSongList) {
         setBool(KEY_SONG_LIST_ARTWORK, showArtworkInSongList);
+    }
+
+    // fdm225: Spoken Audio types
+    public void setSpokenAudioGenres(String key, String genres) {
+        setString(key, genres);
+    }
+
+    public String getSpokenAudioGenres(String key) {
+        return getString(key,"");
     }
 }

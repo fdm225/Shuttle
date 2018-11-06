@@ -343,6 +343,15 @@ public class SettingsParentFragment extends BaseNavigationController implements
                 });
             }
 
+            // Playback
+            Preference chooseAudioBookGenresPreference = findPreference(SettingsManager.KEY_PREF_AUDIO_BOOK_GENRES);
+            if (chooseAudioBookGenresPreference != null) {
+                chooseAudioBookGenresPreference.setOnPreferenceClickListener(preference -> {
+                    settingsPresenter.chooseAudioBookGenresClicked(getActivity());
+                    return true;
+                });
+            }
+
             // Headset/Bluetooth
 
             // Scrobbling
@@ -583,6 +592,13 @@ public class SettingsParentFragment extends BaseNavigationController implements
 
         @Override
         public void showWhitelistDialog(MaterialDialog dialog) {
+            dialog.show();
+        }
+
+        // Playback
+
+        @Override
+        public void showSpokenAudioChooserDialog(MaterialDialog dialog) {
             dialog.show();
         }
     }

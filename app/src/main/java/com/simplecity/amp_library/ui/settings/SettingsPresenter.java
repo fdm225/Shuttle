@@ -32,6 +32,7 @@ import io.reactivex.Completable;
 import io.reactivex.schedulers.Schedulers;
 import java.util.List;
 import javax.inject.Inject;
+import com.simplecity.amp_library.ui.dialog.SpokenAudioChooserDialog;
 
 public class SettingsPresenter extends PurchasePresenter<SettingsView> {
 
@@ -277,6 +278,15 @@ public class SettingsPresenter extends PurchasePresenter<SettingsView> {
                             .onPositive((dialog1, which) -> deleteArtwork())
                             .negativeText(R.string.close)
                             .show());
+        }
+    }
+
+    // Playback
+    public void chooseAudioBookGenresClicked(Activity activity) {
+        SettingsView settingsView = getView();
+        if (settingsView != null) {
+            settingsView.showSpokenAudioChooserDialog(SpokenAudioChooserDialog.getDialog(activity,
+                    "audiobook"));
         }
     }
 
